@@ -10,7 +10,7 @@ $table = new DynamicTable('my_dynamic_table', PDO);
 $table->create(array(
   'nom' => 'varchar',
   'prenom' => 'varchar',
-  'date_naissance' => 'date,
+  'date_naissance' => 'date',
   'infos' => 'text',
   'ref_id' => 'int',
 ))
