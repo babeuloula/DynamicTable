@@ -27,7 +27,7 @@
          */
         public function create($rows) {
             if(!is_array($rows)) {
-                die(htmlentities("Vous devez rentrer les colonnes à créer sous forme d'un tableau associatif."));
+                throw new Exception("Vous devez rentrer les colonnes à créer sous forme d'un tableau associatif.");
             }
 
             $create_sql = "CREATE TABLE IF NOT EXISTS `" . $this->table . "` ( `id` int(11) NOT NULL AUTO_INCREMENT,";
@@ -78,7 +78,7 @@
 
                     case 'after':
                         if(!$after !== null) {
-                            die(htmlentities("Vous devez indiquer après quelle colonne insérer " . $name));
+                            throw new Exception("Vous devez indiquer après quelle colonne insérer " . $name);
                         } else {
                             $this->db->exec("ALTER TABLE `" . $this->table . "` ADD `" . $name . "` " . $this->getRowType($type) . " NOT NULL AFTER `" . $after . "`");
                         }
@@ -233,7 +233,7 @@
                     break;
 
                 default:
-                    die(htmlentities("Ce champs n'est pas encore prévu dans la classe."));
+                    throw new Exception("Ce champs n'est pas encore prévu dans la classe.");
                     break;
             }
         }
