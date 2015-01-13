@@ -85,7 +85,7 @@
                         break;
 
                     case 'after':
-                        if(!$after !== null) {
+                        if($after === null) {
                             throw new Exception("Vous devez indiquer après quelle colonne insérer " . $this->replaceChars($name));
                         } else {
                             $this->db->exec("ALTER TABLE `" . $this->table . "` ADD `" . $this->replaceChars($name) . "` " . $this->getRowType($type) . " NOT NULL " . $comment . " AFTER `" . $this->replaceChars($after) . "`");
