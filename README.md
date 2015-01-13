@@ -8,11 +8,27 @@ $table = new DynamicTable('my_dynamic_table', PDO);
 
 // L'identifiant primaire est automatiquement créé et se nomme id
 $table->create(array(
-  'nom' => 'varchar',
-  'prenom' => 'varchar',
-  'date_naissance' => 'date',
-  'infos' => 'text',
-  'ref_id' => 'int',
+  array(
+    'title' => 'nom',
+    'type' => 'varchar',
+    'comment' => 'Le nom de la personne',
+  ),
+  array(
+    'title' => 'prenom',
+    'type' => 'varchar',
+  ),
+  array(
+    'title' => 'date_naissance',
+    'type' => 'date',
+  ),
+  array(
+    'title' => 'infos',
+    'type' => 'text',
+  ),
+  array(
+    'title' => 'ref_id',
+    'type' => 'int',
+  ),
 ))
   ->renameRow('infos', 'informations')
   ->addRow('adresse', 'varchar', 'after', 'prenom')
