@@ -239,7 +239,7 @@
                     break;
 
                 case 'date':
-                    return "date";
+                    return "datetime";
                     break;
 
                 default:
